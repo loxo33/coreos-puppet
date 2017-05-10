@@ -1,13 +1,13 @@
 # Create CoreOS unit files
 define coreos::unit(
 $description  = $name,
-$after,
-$requires,
-$wants,
-$execstart    = undef,
-$execstartpre,
-$restartsec   = undef,
-$restart      = undef,
+$after        = undef,
+$requires     = undef,
+$wants        = undef,
+$execstart,
+$execstartpre = undef,
+$restartsec,
+$restart,
 ){
   concat { "/etc/systemd/system/${name}.service":
     ensure => file,
