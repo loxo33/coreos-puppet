@@ -6,7 +6,7 @@ $requires     = undef,
 $wants        = undef,
 $execstart,
 $execstartpre = undef,
-$execstop     = undef
+$execstop     = undef,
 $restartsec,
 $restart,
 $wantedby     = undef,
