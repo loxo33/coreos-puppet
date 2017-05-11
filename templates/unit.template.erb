@@ -3,7 +3,7 @@ Description=<%= @description %>
 After=<%= @after %>
 Requires=<%= @requires %>
 [Service]
-<% @execstartpre.each do |exec| -%>
+<% @[execstartpre].each do |exec| -%>
 ExecStartPre=<%= exec %>
 <% end -%>
 ExecStart=<%= @execstart %>
