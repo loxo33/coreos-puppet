@@ -13,7 +13,7 @@ $restart,
     ensure  => file,
     owner   => 0,
     group   => 0,
-    mode    => 0644,
+    mode    => '0644',
     content => template('coreos/unit.template.erb'),
     notify  => Exec['systemctl reload']
   }
