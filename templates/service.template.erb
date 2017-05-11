@@ -1,7 +1,0 @@
-[Service]
-<%= @execstartpre.each do |exec| -%>
-ExecStartPre=<%= exec %>
-<% end -%>
-ExecStart=<%= @execstart %>
-RestartSec=<%= @restartsec %>
-Restart=<%= @restart %>
