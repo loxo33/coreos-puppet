@@ -8,6 +8,7 @@ $execstart,
 $execstartpre = undef,
 $restartsec,
 $restart,
+$wantedby     = undef,
 ){
   file {"/etc/systemd/system/${name}.service":
     ensure  => file,
@@ -18,7 +19,8 @@ $restart,
     notify  => Exec['systemctl reload']
   }
   exec { 'systemctl reload':
-    command     => '/usr/bin/systemctl daemon-reload',
+    command     => 'systemctl daemon-reload',
+    path        => '/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/opt/bin',
     user        => 0,
     refreshonly => true
   }
