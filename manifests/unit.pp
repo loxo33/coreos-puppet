@@ -7,8 +7,8 @@ $wants        = undef,
 $execstart,
 $execstartpre = undef,
 $execstop     = undef,
-$restartsec,
-$restart,
+$restartsec   = undef,
+$restart      = undef,
 $wantedby     = undef,
 ){
   file {"/etc/systemd/system/${name}.service":

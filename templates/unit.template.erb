@@ -11,8 +11,6 @@ Requires=<%= @req %>
 ExecStartPre=<%= exp %>
 <% end -%>
 ExecStart=<%= @execstart %>
-RestartSec=<%= @restartsec %>
-Restart=<%= @restart %>
-<% if @wantedby %>
-WantedBy=<%= @wantedby %>
-<% end -%>
+<% if @restartsec -%>RestartSec=<%= @restartsec %><% end -%>
+<% if @restart -%>Restart=<%= @restart %><% end -%>
+<% if @wantedby -%>WantedBy=<%= @wantedby %><% end -%>
