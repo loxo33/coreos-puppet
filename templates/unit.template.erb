@@ -1,8 +1,7 @@
 [Unit]
 Description=<%= @description %>
-$after.each |String $afr| {
-After=${afr}
-}
+<% @after.each -%>
+<% do |after| %>After=<%= after %>
 <% [@requires].each do |req| -%>
 Requires=<%= req %>
 <% end -%>
