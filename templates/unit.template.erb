@@ -2,6 +2,7 @@
 Description=<%= @description %>
 <% @after.each -%>
 <% do |after| %>After=<%= after %>
+<% end -%>
 <% [@requires].each do |req| -%>
 Requires=<%= req %>
 <% end -%>
