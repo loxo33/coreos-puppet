@@ -1,16 +1,18 @@
 # Create CoreOS unit files
 define coreos::unit(
-String $description  = $name,
-Array  $after        = undef,
-Array  $requires     = undef,
-Array  $wants        = undef,
-String $execstart    = undef,
-Array  $execstartpre = undef,
-String $execstop     = undef,
-String $restartsec   = undef,
-String $restart      = undef,
-Array  $wantedby     = undef,
+String           $description  = $name,
+Optional[Array]  $after        = undef,
+Optional[Array]  $requires     = undef,
+Optional[Array]  $wants        = undef,
+String           $execstart    = undef,
+Optional[Array]  $execstartpre = undef,
+Optional[String] $execstop     = undef,
+Optional[String] $restartsec   = undef,
+Optional[String] $restart      = undef,
+Optional[Array]  $wantedby     = undef
 ){
+  include ::coreos
+
   file {"/etc/systemd/system/${name}.service":
     ensure  => file,
     owner   => 0,
