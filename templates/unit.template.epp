@@ -1,0 +1,16 @@
+[Unit]
+Description=<%= $description %>
+<% $coreos::after.each |$afr| { -%>
+After=<%= $afr %>
+<% } -%>
+<% $requires.each |$req| { -%>
+Requires=<%= $req %>
+<% } -%>
+[Service]
+<% $execstartpre.each |$exp| { -%>
+ExecStartPre=<%= $exp %>
+<% } -%>
+ExecStart=<%= $execstart %>
+<% if $restartsec -%>RestartSec=<%= $restartsec %><% end %>
+<% if $restart -%>Restart=<%= $restart %><% end %>
+<% if $wantedby -%>WantedBy=<%= $wantedby %><% end %>
