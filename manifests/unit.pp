@@ -18,7 +18,7 @@ Optional[Array]  $wantedby     = undef
     owner   => 0,
     group   => 0,
     mode    => '0644',
-    content => template('coreos/unit.template.epp'),
+    content => epp('coreos/unit.template.epp'),
     notify  => Class['coreos::systemctl::daemon_reload'],
   }
 }
