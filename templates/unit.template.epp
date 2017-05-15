@@ -1,16 +1,25 @@
 [Unit]
 Description=<%= $description %>
-<% $coreos::after.each |$afr| { -%>
+<% if $after {-%>
+<% $after.each |$afr| { -%>
 After=<%= $afr %>
-<% } -%>
+<% } -%> -%>
+<% if $requires {-%>
 <% $requires.each |$req| { -%>
 Requires=<%= $req %>
-<% } -%>
+<% } -%> } -%>
 [Service]
+<% if $execstartpre {-%>
 <% $execstartpre.each |$exp| { -%>
 ExecStartPre=<%= $exp %>
-<% } -%>
+<% } -%> } -%>
 ExecStart=<%= $execstart %>
-<% if $restartsec -%>RestartSec=<%= $restartsec %><% end %>
-<% if $restart -%>Restart=<%= $restart %><% end %>
-<% if $wantedby -%>WantedBy=<%= $wantedby %><% end %>
+<% if $restartsec{-%>
+RestartSec=<%= $restartsec %>
+<% } -%>
+<% if $restart {-%>
+Restart=<%= $restart %>
+<% } -%>
+<% if $wantedby {-%>
+WantedBy=<%= $wantedby %>
+<% } -%>
