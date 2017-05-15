@@ -1,15 +1,15 @@
 # Create CoreOS unit files
 define coreos::unit(
 String           $description,
-Optional[Array]  $after,
-Optional[Array]  $requires,
-Optional[Array]  $wants,
+Optional[Array[String]]  $after,
+Optional[Array[String]]  $requires,
+Optional[Array[String]]  $wants,
 String           $execstart,
-Optional[Array]  $execstartpre,
+Optional[Array[String]]  $execstartpre,
 Optional[String] $execstop,
 Optional[String] $restartsec,
 Optional[String] $restart,
-Optional[Array]  $wantedby,
+Optional[Array[String]]  $wantedby,
 ){
   include ::coreos
   include ::stdlib
