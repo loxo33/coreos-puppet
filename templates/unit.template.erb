@@ -13,4 +13,5 @@ ExecStartPre=<%= exp %>
 ExecStart=<%= @execstart %>
 <% if @restartsec -%>RestartSec=<%= @restartsec %><% end %>
 <% if @restart -%>Restart=<%= @restart %><% end %>
+[Install]
 <% if @unit_wantedby -%>WantedBy=<%= @unit_wantedby %><% end %>

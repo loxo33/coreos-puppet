@@ -9,7 +9,7 @@ Optional[Array]  $execstartpre      = undef,
 Optional[String] $execstop          = undef,
 Optional[String] $restartsec        = undef,
 Optional[String] $restart           = undef,
-Optional[Array]  $unit_wantedby     = undef,
+String           $unit_wantedby     = 'multi-user.target',
 ){
   include ::coreos
   include ::stdlib
