@@ -3,13 +3,13 @@ define coreos::unit(
 String           $description,
 Optional[Array[String]]  $after,
 Optional[Array[String]]  $requires,
-Optional[Array[String]]  $wants,
+Optional[Array]  $wants,
 String           $execstart,
 Optional[Array[String]]  $execstartpre,
-Optional[String] $execstop,
+Optional[String] $execstop = undef,
 Optional[String] $restartsec,
 Optional[String] $restart,
-Optional[Array[String]]  $wantedby,
+Optional[Array]  $wantedby,
 ){
   include ::coreos
   include ::stdlib
