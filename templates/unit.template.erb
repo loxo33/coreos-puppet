@@ -1,7 +1,16 @@
 [Unit]
-Description=<%= @description %>
+Description=<%= @unit_description %>
+<% @unit_after.each do |after| -%>
+After=<%= after %>
+<% end -%>
+<% @unit_requires.each do |requires| -%>
+Requires=<%= requires %>
+<% end -%>
 [Service]
+<% @execstartpre.each do |exp| -%>
+ExecStartPre=<%= exp %>
+<% end -%>
 ExecStart=<%= @execstart %>
 <% if @restartsec -%>RestartSec=<%= @restartsec %><% end %>
 <% if @restart -%>Restart=<%= @restart %><% end %>
-<% if @wantedby -%>WantedBy=<%= @wantedby %><% end %>
+<% if @unit_wantedby -%>WantedBy=<%= @unit_wantedby %><% end %>
