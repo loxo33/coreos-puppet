@@ -11,8 +11,8 @@ Optional[String] $restartsec   = undef,
 Optional[String] $restart      = undef,
 Optional[Array]  $wantedby     = undef,
 ){
-#  include ::coreos
-#  include ::stdlib
+  include ::coreos
+  include ::stdlib
   file {"/etc/systemd/system/${name}.service":
     ensure  => file,
     owner   => 0,
