@@ -1,16 +1,16 @@
 [Unit]
 Description=<%= $description %>
 
-<% $after.each |$afr| {-%>
+<% $coreos::unit::after.each |$afr| {-%>
 After=<%= $afr %>
 <% } -%>
 
-<% $requires.each |$req| {-%>
+<% $coreos::unit::requires.each |$req| {-%>
 Requires=<%= $req %>
 <% } -%>
 
 [Service]
-<% $execstartpre.each |$exp| {-%>
+<% $coreos::unit::execstartpre.each |$exp| {-%>
 ExecStartPre=<%= $exp %>
 <% } -%>
 
