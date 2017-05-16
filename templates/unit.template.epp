@@ -1,25 +1,23 @@
 [Unit]
 Description=<%= $description %>
-<% if $after {-%>
-<% $after.each |$afr| { -%>
+
+<% $after.each |$afr| {-%>
 After=<%= $afr %>
-<% } -%> -%>
-<% if $requires {-%>
-<% $requires.each |$req| { -%>
+<% } -%>
+
+<% $requires.each |$req| {-%>
 Requires=<%= $req %>
-<% } -%> } -%>
+<% } -%>
+
 [Service]
-<% if $execstartpre {-%>
-<% $execstartpre.each |$exp| { -%>
+<% $execstartpre.each |$exp| {-%>
 ExecStartPre=<%= $exp %>
-<% } -%> } -%>
+<% } -%>
+
+
 ExecStart=<%= $execstart %>
-<% if $restartsec{-%>
 RestartSec=<%= $restartsec %>
-<% } -%>
-<% if $restart {-%>
 Restart=<%= $restart %>
-<% } -%>
 <% if $wantedby {-%>
 WantedBy=<%= $wantedby %>
 <% } -%>
