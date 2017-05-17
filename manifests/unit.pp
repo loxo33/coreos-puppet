@@ -9,7 +9,8 @@ Optional[Array]  $execstartpre      = undef,
 Optional[String] $execstop          = undef,
 Optional[String] $restartsec        = undef,
 Optional[String] $restart           = undef,
-String           $unit_wantedby     = 'multi-user.target',
+Optional[String] $unit_wantedby     = undef,
+Optional[String] $has_service       = 'true',
 ){
   include ::coreos
   include ::stdlib
@@ -22,11 +23,13 @@ String           $unit_wantedby     = 'multi-user.target',
     notify  => Class['coreos::systemctl::daemon_reload'],
   }
 
-  service {"${name}":
-    ensure     => 'running',
-#    enable     => 'mask',
-    hasrestart => 'true',
-    hasstatus  => 'true',
-    provider   => 'systemd',
+  if $has_service['true'] {
+    service {"${name}":
+      ensure     => 'running',
+      enable     => 'mask',
+      hasrestart => 'true',
+      hasstatus  => 'true',
+      provider   => 'systemd',
+    }
   }
 }
