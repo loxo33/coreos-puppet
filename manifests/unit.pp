@@ -28,6 +28,5 @@ String           $unit_wantedby     = 'multi-user.target',
     hasrestart => 'true',
     hasstatus  => 'true',
     provider   => 'systemd',
-    requires   => File["/etc/systemd/system/${name}.service"],
   }
 }
