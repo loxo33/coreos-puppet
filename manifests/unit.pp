@@ -23,7 +23,7 @@ Boolean          $has_service       = true,
     notify  => Class['coreos::systemctl::daemon_reload'],
   }
 
-  if $has_service['true'] {
+  if $has_service == true {
     service {"${name}":
       ensure     => 'running',
       enable     => 'mask',
