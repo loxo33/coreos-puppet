@@ -10,7 +10,7 @@ Optional[String] $execstop          = undef,
 Optional[String] $restartsec        = undef,
 Optional[String] $restart           = undef,
 Optional[String] $unit_wantedby     = undef,
-Optional[String] $has_service       = 'true',
+Boolean          $has_service       = true,
 ){
   include ::coreos
   include ::stdlib
@@ -27,8 +27,8 @@ Optional[String] $has_service       = 'true',
     service {"${name}":
       ensure     => 'running',
       enable     => 'mask',
-      hasrestart => 'true',
-      hasstatus  => 'true',
+      hasrestart => true,
+      hasstatus  => true,
       provider   => 'systemd',
     }
   }
