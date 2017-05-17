@@ -21,4 +21,13 @@ String           $unit_wantedby     = 'multi-user.target',
     content => template('coreos/unit.template.erb'),
     notify  => Class['coreos::systemctl::daemon_reload'],
   }
+
+  service {"${name}":
+    ensure     => 'running',
+#    enable     => 'mask',
+    hasrestart => 'true',
+    hasstatus  => 'true',
+    provider   => 'systemd',
+    requires   => File["/etc/systemd/system/${name}.service"],
+  }
 }
